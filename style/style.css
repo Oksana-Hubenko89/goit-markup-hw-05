@@ -441,7 +441,7 @@ main {
   border-top: 1px solid var(--border-portfolio-line);
   background-color: var(--primary-white-color);
 }
-.card-portfilio {
+.card-portfolio {
   display: block;
   padding: 20px 24px;
 }
