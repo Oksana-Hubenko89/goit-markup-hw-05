@@ -114,6 +114,7 @@ header {
 .contact {
   display: inline-flex;
   color: var(--text-body-color);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact:hover,
 .contact:focus {
@@ -124,6 +125,7 @@ header {
   margin-right: 10px;
   width: 16px;
   fill: currentColor;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-contact:hover {
   fill: var(--accent-color);
@@ -132,6 +134,7 @@ header {
   padding-right: 10px;
   width: 20px;
   fill: currentColor;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header .container {
@@ -139,6 +142,21 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 80px;
+}
+.nav {
+  color: var(--text-title-button-secondary);
+}
+.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  right: 0;
+  display: inline-block;
+  border-radius: 2px;
 }
 .main-nav {
   display: flex;
@@ -150,23 +168,17 @@ header {
   margin-left: 85px;
 }
 
-.nav {
-  color: var(--text-title-button-secondary);
-  padding: -4px;
-}
 .item .nav,
 .item .nav {
-  border-bottom: solid 4px var(--primary-white-color);
+  position: relative;
+  padding-bottom: 32px;
+  padding-top: 32px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .item .nav:hover,
 .item .nav:focus {
   color: var(--accent-color);
-  padding-top: 28px;
-  padding-bottom: 28px;
-  border-bottom: solid 4px var(--accent-color);
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
 }
 .buttom-header {
   margin-left: auto;
@@ -250,11 +262,19 @@ main {
   padding-left: 0px;
 }
 /*Чем мы занимаемся*/
-.hero-three.hero-three-else {
-  padding-top: 27px;
-  padding-bottom: 27px;
-  margin: 0px;
+.primory-fone {
+  position: relative;
 }
+.primory-fone::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+
+  width: 370px;
+  height: 70px;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
 .friends .card:not(:last-child) {
   margin-right: 30px;
 }
@@ -265,7 +285,18 @@ main {
   /* or 171% */
   color: var(--text-body-color);
 }
+.hero-three-else {
+  display: inline-block;
+  margin: 0;
+  padding-top: 35px;
+  padding-bottom: 35px;
 
+  color: var(--primary-white-color);
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+}
 /*Наша команда*/
 .fone-section {
   background-color: var(--button-secondary-icon-background);
@@ -329,6 +360,7 @@ main {
   align-items: center;
   color: var(--text-social-links);
   background-color: var(--primary-white-color);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-link:hover,
 .social-link:focus {
@@ -351,6 +383,7 @@ main {
 }
 .icon-partner {
   fill: var(--text-social-links);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-partner:hover,
 .icon-partner:focus {
@@ -366,6 +399,7 @@ main {
   padding: 20px;
   border: solid 1px var(--text-social-links);
   border-radius: 4px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link .icon-partner:hover,
@@ -398,13 +432,6 @@ main {
   text-align: center;
 }
 
-.hero-three-else {
-  color: var(--primary-white-color);
-}
-.primory-fone {
-  background: var(--hero-fone);
-}
-
 .else-color-hero {
   color: var(--text-title-button-secondary);
 }
@@ -412,6 +439,7 @@ main {
 /* Студия соц.сети */
 .social-links {
   color: var(--text-social-links);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-links:hover,
 .social-links:focus {
@@ -431,11 +459,33 @@ main {
   height: 404px;
   margin: 15px;
   border: 1px solid var(--border-portfolio);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .oll:hover,
 .oll:focus {
   box-shadow: 1px 4px 6px var(--shadow-four), 0px 4px 4px var(--shadow-five),
     0px 1px 1px var(--shadow-three);
+}
+.oll-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.oll-overlay {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 370px;
+  height: 294px;
+  background-color: rgba(33, 150, 243, 0.9);
+  transform: translateY(100%);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+.oll:hover .oll-overlay {
+  transform: translateY(-0.5%);
+  opacity: 1;
 }
 .section-portfolio {
   border-top: 1px solid var(--border-portfolio-line);
@@ -451,14 +501,8 @@ main {
   line-height: 1.56;
   padding: 63px 24px;
   color: var(--primary-white-color);
-  background-color: var(--background-text-card);
 }
-.text-card {
-  display: none;
-}
-.text-card:hover::after {
-  display: block;
-}
+
 .filtr {
   justify-content: center;
   margin-bottom: 50px;
@@ -484,21 +528,6 @@ main {
   color: var(--text-body-color);
 }
 /*Кнопки*/
-
-.button-primary {
-  color: var(--primary-white-color);
-  background-color: var(--accent-color);
-  letter-spacing: 0.06;
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 16px;
-
-  width: 200px;
-  height: 50px;
-  border-radius: 4px;
-  overflow: hidden;
-  border: solid 1px var(--accent-color);
-}
 button {
   padding: 0;
   border: 0;
@@ -507,17 +536,51 @@ button {
   align-items: center;
   text-align: center;
 }
+.button-primary {
+  color: var(--primary-white-color);
+  background-color: var(--accent-color);
+  letter-spacing: 0.06;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.9;
+  padding: 10px 32px;
+
+  width: 200px;
+  height: 50px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: solid 1px var(--accent-color);
+}
+.button-footer {
+  color: var(--primary-white-color);
+  background-color: var(--accent-color);
+  letter-spacing: 0.06;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.9;
+  padding: 10px 28px;
+
+  width: 200px;
+  height: 50px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: solid 1px var(--accent-color);
+}
 .button-secondary {
+  padding: 6px 22px;
   font-family: inherit;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.62;
+  line-height: 1.6;
   /* identical to box height, or 162% */
   color: var(--text-title-button-secondary);
   background-color: var(-button-secondary-icon-background);
   border-radius: 4px;
   border: solid 1px var(--button-secondary-icon-background);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-secondary:hover,
@@ -542,6 +605,7 @@ button {
   color: var(--primary-white-color);
   background-color: var(--fone-social-footer);
   border-radius: 50%;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link-footer:hover,
@@ -591,12 +655,6 @@ address {
 .footer-block {
   justify-content: right;
 }
-
-.footer-social-link,
 .logo-two-footer {
   color: var(--primary-white-color);
-}
-.footer-social-link:hover,
-.footer-social-link:focus {
-  color: var(--accent-color);
 }
