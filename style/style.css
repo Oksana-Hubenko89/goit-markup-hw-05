@@ -110,26 +110,66 @@ h6 {
   opacity: 0;
   pointer-events: none;
 }
-.hero-modal {
-  width: 1600px;
-  position: fixed;
-  background: rgba(0, 0, 0, 0.2);
-  top: 0;
-  left: 0;
-}
 
-.hero-form {
-  margin: 0;
+.button-form-close {
   position: absolute;
-  top: 208px;
-  left: 159px;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 8px;
+  margin-top: 1px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+.close-form {
+  width: 18px;
+  height: 18px;
+}
+.hero-backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  overflow: scroll;
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hero-modal {
+  display: block;
+  position: absolute;
+  top: 23%;
+  left: 30%;
+  transform: translate(-30%;-23%);
   background-color: var(--primary-white-color);
-  width: 528px;
-  padding: 33px 40px;
+  min-width: 528px;
+  min-height: 521px;
+  padding-top: 33px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 47px;
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 1px 3px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
 }
+
+.hero-form {
+  display: block;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 33px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 47px;
+}
+
 .form-caption {
   display: inline-block;
   margin-bottom: 30px;
@@ -283,7 +323,24 @@ textarea {
 .form-input:focus ~ .icon-form {
   fill: var(--accent-color);
 }
-
+.href-form::after {
+  display: block;
+  content: " ";
+  position: absolute;
+  background-color: var(--accent-color);
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  width: 100%;
+  height: 2px;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.href-form:hover::after {
+  opacity: 1;
+}
+.href-form {
+  position: relative;
+}
 .button-form {
   display: flex;
   align-items: center;
@@ -301,6 +358,7 @@ textarea {
   color: var(--primary-white-color);
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
 }
 
 header {
