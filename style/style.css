@@ -280,7 +280,7 @@ textarea {
 }
 .checkbox:checked + .checkbox-icon {
   background-color: var(--accent-color);
-  background-image: url("./image/icon-check.svg");
+  background-image: url("../image/icon-check.svg");
   background-size: contain;
   border-color: transparent;
   background-origin: border-box;
